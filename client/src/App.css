@@ -1,0 +1,31 @@
+#homePic{
+    background-image: url("../src/image/Group 14.png");
+
+    height: 900px;
+}
+
+#bgPic{
+    background-image: url("../src/image/Group 34.png");
+    height: 350px;
+}
+
+#CustomerSaysPic{
+    background-image: url("../src/image/Group 39.png");
+    height: 750px;
+}
+
+
+#AboutHomePic{
+    background-image: url("../src/image/abouthHomePic.png");
+    height: 900px;
+}
+
+#MenuhomePic{
+    background-image: url("../src/image/menupic.png");
+    height: 900px;
+}
+
+#BlogHomePic{
+    background-image: url("../src/image/Group 53.png");
+    height: 900px;
+}
