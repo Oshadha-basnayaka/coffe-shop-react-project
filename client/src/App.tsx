@@ -6,6 +6,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 import {DefaultLayout} from "./view/commen/DefaultLayout/DefaultLayout";
 import {Login} from "./view/page/Login/Login";
+import {SingUp} from "./view/page/Login/SingUp";
 
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
                 </Route>
                 <Route path="/login"
                        Component={Login}>
+                </Route>
+                <Route path="/singup"
+                       Component={SingUp}>
                 </Route>
             </Routes>
         </BrowserRouter>

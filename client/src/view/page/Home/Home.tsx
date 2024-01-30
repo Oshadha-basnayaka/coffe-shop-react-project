@@ -21,8 +21,14 @@ export class Home extends Component {
             <>
                 {/*//home photo*/}
                 <div id="homePic">
+                    <div className={"flex text-white pt-52  font-bold  justify-center items-center flex-col"}>
+                        <h1 className={"text-[32px] text-[#AB8A5A]"}>Welcome</h1>
+                        <h1 className={"text-[62px]"}>Amazing Taste And Beautiful Place
+                        </h1>
 
-                    <div className="flex gap-10  justify-center pt-[830px] overflow-hidden" >
+                    </div>
+
+                    <div className="flex gap-10  justify-center pt-[430px] overflow-hidden" >
                         <button className=" text-black bg-[#AB8A5A] px-5 py-2  ">
 
                             <Link to={"/cart"}> Oder Now</Link>
@@ -192,9 +198,9 @@ export class Home extends Component {
 
                 {/*//Our Product*/}
                 <div className="bg-gradient-to-r from-[#1B1B1B] to-[#535353] flex flex-col ">
-                    <div className=" justify-center flex flex-col items-center">
+                    <div className=" justify-center flex flex-col items-center pt-14">
                         <h1 className="text-2xl text-center text-[#AB8B5A] ">Discover</h1>
-                        <h1 className="text-4xl text-center text-white ">OUR PRODUCT</h1>
+                        <h1 className="text-4xl text-center text-white font-bold">OUR PRODUCT</h1>
                         <br/>
                         <br/>
                         <p className="text-white text-center max-w-[700px]">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
