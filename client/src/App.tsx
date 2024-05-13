@@ -8,7 +8,6 @@ import {DefaultLayout} from "./view/commen/DefaultLayout/DefaultLayout";
 import {Login} from "./view/page/Login/Login";
 import {SingUp} from "./view/page/Login/SingUp";
 
-
 function App() {
     return ( <BrowserRouter>
             {/*<DefaultLayout/>*/}

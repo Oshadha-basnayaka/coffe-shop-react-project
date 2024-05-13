@@ -10,6 +10,11 @@ export class Blog extends Component {
             <>
                 {/*//home photo*/}
                 <div id="BlogHomePic">
+                    <div className={"flex text-white pt-72  font-bold  justify-center items-center flex-col"}>
+                        <h1 className={"text-[40px] "}>Collect Your Memoryes</h1>
+                        <h1 className={"text-[62px] "}>Blog</h1>
+
+                    </div>
                 </div>
 
 

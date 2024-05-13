@@ -7,7 +7,11 @@ export class Contact extends Component {
 
 
                 {/*//conatct photo*/}
-                <div id="AboutHomePic">
+                <div id="Contactpic">
+                    <div className={"flex text-white pt-72  font-bold  justify-center items-center flex-col"}>
+                        <h1 className={"text-[40px] "}>The Best Coffe tast Experiance </h1>
+                        <h1 className={"text-[62px] "}>Contac</h1>
+                    </div>
                 </div>
 
 
@@ -38,51 +42,51 @@ export class Contact extends Component {
 
 
 
-                <div className=" bg-gradient-to-r from-[#1B1B1B] to-[#535353] max-h-screen">
-                    <div>
-                        <h1 className="text-2xl text-center pt-10 text-[#AB8B5A]">Contact</h1>
-                        <h1 className="text-4xl text-center text-white pb-28">OUR DETAILS</h1>
-                    </div>
+                {/*<div className=" bg-gradient-to-r from-[#1B1B1B] to-[#535353] max-h-screen">*/}
+                {/*    <div>*/}
+                {/*        <h1 className="text-2xl text-center pt-10 text-[#AB8B5A]">Contact</h1>*/}
+                {/*        <h1 className="text-4xl text-center text-white pb-28">OUR DETAILS</h1>*/}
+                {/*    </div>*/}
 
-                    <div className="flex justify-between pt-20">
-                        <div>
-                            <h1 className="pl-32 text-white pb-12" >About</h1>
+                {/*    <div className="flex justify-between pt-20">*/}
+                {/*        <div>*/}
+                {/*            <h1 className="pl-32 text-white pb-12" >About</h1>*/}
 
-                            <p className="text-white pl-32">
-                                Far far away, behind <br/>
-                                the word mountains, far from<br/>
-                                the countries Vokalia and Consonantia,<br/>
-                                there live the blind texts
-                            </p>
-                        </div>
+                {/*            <p className="text-white pl-32">*/}
+                {/*                Far far away, behind <br/>*/}
+                {/*                the word mountains, far from<br/>*/}
+                {/*                the countries Vokalia and Consonantia,<br/>*/}
+                {/*                there live the blind texts*/}
+                {/*            </p>*/}
+                {/*        </div>*/}
 
-                        <div>
-                            <h1 className="text-white pb-12">Contac</h1>
+                {/*        <div>*/}
+                {/*            <h1 className="text-white pb-12">Contac</h1>*/}
 
-                            <h2 className="text-white">+94 70 110 26 33</h2>
-                            <h2 className="text-white">No 3/6 , bandaranayaka road , hettiwidiya , weligama</h2>
-                            <h2 className="text-white">open every days</h2>
+                {/*            <h2 className="text-white">+94 70 110 26 33</h2>*/}
+                {/*            <h2 className="text-white">No 3/6 , bandaranayaka road , hettiwidiya , weligama</h2>*/}
+                {/*            <h2 className="text-white">open every days</h2>*/}
 
-                        </div>
+                {/*        </div>*/}
 
-                        <div className="w-[30%]">
-                            <h1 className="pr-80 text-white pb-12" >Book A Table</h1>
+                {/*        <div className="w-[30%]">*/}
+                {/*            <h1 className="pr-80 text-white pb-12" >Book A Table</h1>*/}
 
-                            <h1 className="pr-80 text-white">Full Name</h1>
-                            <input className="w-80 h-5"></input>
-                            <h1 className="pr-80 text-white">Phone</h1>
-                            <input className="w-40 h-5"></input>
-                            <h1 className="pr-80 text-white">Message</h1>
-                            <textarea className="w-80 h-20"></textarea>
+                {/*            <h1 className="pr-80 text-white">Full Name</h1>*/}
+                {/*            <input className="w-80 h-5"></input>*/}
+                {/*            <h1 className="pr-80 text-white">Phone</h1>*/}
+                {/*            <input className="w-40 h-5"></input>*/}
+                {/*            <h1 className="pr-80 text-white">Message</h1>*/}
+                {/*            <textarea className="w-80 h-20"></textarea>*/}
 
-                        </div>
+                {/*        </div>*/}
 
-                    </div>
+                {/*    </div>*/}
 
-                    {/*<div>*/}
-                    {/*    <h1 className={"text-white text-center pt-20"}>Copyright ©2024 All rights reserved | Made by Oshadha Basnayaka</h1>*/}
-                    {/*</div>*/}
-                </div>
+                {/*    /!*<div>*!/*/}
+                {/*    /!*    <h1 className={"text-white text-center pt-20"}>Copyright ©2024 All rights reserved | Made by Oshadha Basnayaka</h1>*!/*/}
+                {/*    /!*</div>*!/*/}
+                {/*</div>*/}
 
             </>
         );

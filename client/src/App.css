@@ -16,16 +16,21 @@
 
 
 #AboutHomePic{
-    background-image: url("../src/image/Group 48.png");
+    background-image: url("../src/image/Group 62.png");
     height: 580px;
 }
 
 #MenuhomePic{
-    background-image: url("../src/image/menupic.png");
-    height: 900px;
+    background-image: url("../src/image/Group 63.png");
+    height: 580px;
 }
 
 #BlogHomePic{
-    background-image: url("../src/image/Group 53.png");
-    height: 900px;
+    background-image: url("../src/image/Group 66.png");
+    height: 580px;
+}
+
+#Contactpic{
+    background-image: url("../src/image/Group 67 - Copy.png");
+    height: 580px;
 }

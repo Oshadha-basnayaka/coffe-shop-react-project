@@ -9,16 +9,16 @@ interface SingUpProps {
 
 interface SingUpState {
 
-    name:string;
-    password:string;
-    location:string;
-    username:string;
-    role:string;
-    contact:number;
+    name: string;
+    password: string;
+    location: string;
+    username: string;
+    role: string;
+    contact: number;
 }
 
 
-export class SingUp extends Component <SingUpProps,SingUpState>{
+export class SingUp extends Component <SingUpProps, SingUpState> {
 
     private api: any;
 
@@ -49,14 +49,15 @@ export class SingUp extends Component <SingUpProps,SingUpState>{
                         <div className={'bg-[#AB8A5A] w-[1500px] rounded-2xl flex  '}>
 
 
-                                <div className={"flex justify-start"}>
-                                    <img className={"w-[600px] h-[600px] mr-16 "} src={LoginPic}/>
-                                </div>
+                            <div className={"flex justify-start"}>
+                                <img className={"w-[600px] h-[600px] mr-16 "} src={LoginPic}/>
+                            </div>
 
 
-                                <div className={"flex  pt-20 gap-28 "}>
+                            <div className={"flex flex-col justify-center items-start gap-10 "}>
 
 
+                                <div className="flex justify-center items-center gap-5">
                                     <form className={"flex flex-col  gap-3 "}>
 
                                         <h1 className={"text-2xl text-white"}>Your full Name</h1>
@@ -66,55 +67,55 @@ export class SingUp extends Component <SingUpProps,SingUpState>{
                                                onChange={this.handleMessageInputOnChange}/>
 
                                         <h1 className={"text-2xl text-white"}>PassWord</h1>
-                                        <input  className="" type="text"
-                                                name="password"
-                                                value={this.state.password}
-                                                onChange={this.handleMessageInputOnChange}/>
+                                        <input className="" type="text"
+                                               name="password"
+                                               value={this.state.password}
+                                               onChange={this.handleMessageInputOnChange}/>
 
                                         <h1 className={"text-2xl text-white"}>Location</h1>
-                                        <input  className="" type="text"
-                                                name="location"
-                                                value={this.state.location}
-                                                onChange={this.handleMessageInputOnChange}/>
+                                        <input className="" type="text"
+                                               name="location"
+                                               value={this.state.location}
+                                               onChange={this.handleMessageInputOnChange}/>
 
                                     </form>
 
                                     <form className={"flex flex-col gap-3"}>
 
                                         <h1 className={"text-2xl text-white"}>User Name</h1>
-                                        <input  className="" type="text"
-                                                name="username"
-                                                value={this.state.username}
-                                                onChange={this.handleMessageInputOnChange}/>
+                                        <input className="" type="text"
+                                               name="username"
+                                               value={this.state.username}
+                                               onChange={this.handleMessageInputOnChange}/>
 
                                         <h1 className={"text-2xl text-white"}>your Role</h1>
-                                        <input  className="" type="text"
-                                                name="role"
-                                                value={this.state.role}
-                                                onChange={this.handleMessageInputOnChange}/>
+                                        <input className="" type="text"
+                                               name="role"
+                                               value={this.state.role}
+                                               onChange={this.handleMessageInputOnChange}/>
 
                                         <h1 className={"text-2xl text-white"}>Contact Number</h1>
-                                        <input  className="" type="text"
-                                                name="contact"
-                                                value={this.state.contact}
-                                                onChange={this.handleMessageInputOnChange}/>
+                                        <input className="" type="text"
+                                               name="contact"
+                                               value={this.state.contact}
+                                               onChange={this.handleMessageInputOnChange}/>
                                     </form>
-
                                 </div>
 
+                                <div>
 
-                            <div>
+                                    <button
+                                        className=" border-2 border-[#000000] bg-neutral-900 box-border text-white font-bold px-5  flex flex-col"
+                                        type={"button"} onClick={this.onSendBtnClick}>
+                                        Sing Up
+                                    </button>
 
-                                <button className=" border-2 border-[#000000] bg-neutral-900 box-border text-white font-bold px-5 animate-pulse" type={"button"} onClick={this.onSendBtnClick}>
-                                    Sing Up
-                                </button>
 
+                                    <h1 className={"text-center"}>
+                                        <Link to={"/"}> -Back To Home-</Link>
 
-
-                                <h1 className={"text-center"}>
-                                    <Link to={"/"}> -Back To Home-</Link>
-
-                                </h1>
+                                    </h1>
+                                </div>
                             </div>
 
                         </div>
@@ -129,7 +130,7 @@ export class SingUp extends Component <SingUpProps,SingUpState>{
     }
 
 
-    handleMessageInputOnChange(event: { target: {value: any; name: any;} }) {
+    handleMessageInputOnChange(event: { target: { value: any; name: any; } }) {
         const target = event.target;
         const name = target.name;
         const value = target.value;
@@ -138,7 +139,6 @@ export class SingUp extends Component <SingUpProps,SingUpState>{
             [name]: value
         });
     }
-
 
 
     private onSendBtnClick = () => {
@@ -150,10 +150,10 @@ export class SingUp extends Component <SingUpProps,SingUpState>{
                 username: this.state.username,
                 role: this.state.role,
                 contact: this.state.contact
-            }).then((res: { data: any}) => {
+            }).then((res: { data: any }) => {
                 const jsonData = res.data;
                 alert(jsonData);
-            }).catch((error: any)=> {
+            }).catch((error: any) => {
                 console.error('Axios Error', error);
             });
         } catch (error) {
