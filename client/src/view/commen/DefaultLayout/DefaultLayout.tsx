@@ -1,20 +1,21 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 import NavBar from "../NavBar/NavBar";
-import {Footer} from "../Footer/Footer";
-import {MainContent} from "../MainContent/MainContent";
+import { Footer } from "../Footer/Footer";
+import { MainContent } from "../MainContent/MainContent";
 
 export class DefaultLayout extends Component {
     render() {
         return (
-            <>
 
-                <NavBar/>
-                <MainContent/>
-                <Footer/>
+            <div className="flex flex-col">
+                <div className="">  <NavBar /></div>
+                <div>  <MainContent /></div>
+                <div>  <Footer /></div>
+            </div>
 
 
-            </>
+
         );
     }
 }

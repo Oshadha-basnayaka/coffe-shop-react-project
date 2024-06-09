@@ -1,11 +1,63 @@
-import {Component} from "react";
+import { Component } from "react";
+import React, { useState } from 'react';
 import OurProductPic1
     from "../../../image/OurProductPic/Beafourtony Espresso Cups and Saucers Unique craft Ceramic Cup.png";
 import OurProductPic2 from "../../../image/OurProductPic/Free PSD _ Mockup of a cup of takeaway coffee.png";
 import OurProductPic3 from "../../../image/OurProductPic/Tea holic.png";
+import Product from "../../../componanent/Product";
+import { products } from "../Home/Homes";
+
+
+interface Product {
+    id: number;
+    category: string;
+    name: string;
+    description: string;
+    price: string;
+    image: string;
+}
+
+interface Props {
+    products: Product[];
+}
+
+
+const sampleProducts: Product[] = [
+    {
+        id: 1,
+        category: 'Coffee',
+        name: 'Cappuccino Coffee',
+        description: 'Indulge in warmth and spice with our Chai Coffee...',
+        price: '$2.89',
+        image: 'path_to_image1',
+    },
+    {
+        id: 2,
+        category: 'Coffee',
+        name: 'Ice Coffee',
+        description: 'Indulge in warmth and spice with our Chai Coffee...',
+        price: '$2.89',
+        image: 'path_to_image2',
+    },
+    {
+        id: 3,
+        category: 'Coffee',
+        name: 'Chai Coffee',
+        description: 'Indulge in warmth and spice with our Chai Coffee...',
+        price: '$2.89',
+        image: 'path_to_image3',
+    },
+    // Add more products here
+];
 
 export class Menu extends Component {
     render() {
+
+        // const [selectedCategory, setSelectedCategory] = useState<string>('Coffee');
+
+        // const filteredProducts = products.filter(
+        //     (product) => product.category === selectedCategory
+        // );
         return (
             <>
 
@@ -43,16 +95,21 @@ export class Menu extends Component {
 
 
                 {/*//Our Product*/}
-                <div className="bg-gradient-to-r from-[#1B1B1B] to-[#535353] flex flex-col ">
+
+
+                <Product  data={products} viewButton={false}/>
+
+
+                {/* <div className="bg-gradient-to-r from-[#1B1B1B] to-[#535353] flex flex-col ">
                     <div className=" justify-center flex flex-col items-center pt-10">
                         <h1 className="text-2xl text-center text-[#AB8B5A] ">Discover</h1>
                         <h1 className="text-4xl text-center text-white ">OUR PRODUCT</h1>
-                        <br/>
-                        <br/>
+                        <br />
+                        <br />
                         <p className="text-white text-center max-w-[700px]">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                     </div>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
 
                     <div className="flex justify-center gap-10 items-center">
                         <div className="bg-[#AB8A5A]  px-5 py-2 rounded">
@@ -63,15 +120,15 @@ export class Menu extends Component {
 
                     </div>
 
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
 
                     <div className="flex justify-evenly items-center">
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]"  src={OurProductPic1} alt=""/>
+                            <img className="w-[250px] h-[250px]" src={OurProductPic1} alt="" />
                             <h1 className="text-2xl text-center text-white ">Cappuccino Coffe</h1>
                             <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -83,7 +140,7 @@ export class Menu extends Component {
 
 
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]" src={OurProductPic2} alt=""/>
+                            <img className="w-[250px] h-[250px]" src={OurProductPic2} alt="" />
                             <h1 className="text-2xl text-center text-white ">Ice Coffe</h1>
                             <p className="max-w-[250px]  text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -94,7 +151,7 @@ export class Menu extends Component {
 
 
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px] " src={OurProductPic3} alt=""/>
+                            <img className="w-[250px] h-[250px] " src={OurProductPic3} alt="" />
                             <h1 className="text-2xl text-center text-white ">Chai Coffe</h1>
                             <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -106,14 +163,14 @@ export class Menu extends Component {
 
                     </div>
 
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
 
                     <div className="flex justify-evenly items-center">
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]" src={OurProductPic1} alt=""/>
+                            <img className="w-[250px] h-[250px]" src={OurProductPic1} alt="" />
                             <h1 className="text-2xl text-center text-white ">Cappuccino Coffe</h1>
                             <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -124,7 +181,7 @@ export class Menu extends Component {
 
 
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]" src={OurProductPic2} alt=""/>
+                            <img className="w-[250px] h-[250px]" src={OurProductPic2} alt="" />
                             <h1 className="text-2xl text-center text-white ">Ice Coffe</h1>
                             <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -135,7 +192,7 @@ export class Menu extends Component {
 
 
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]" src={OurProductPic3} alt=""/>
+                            <img className="w-[250px] h-[250px]" src={OurProductPic3} alt="" />
                             <h1 className="text-2xl text-center text-white ">Chai Coffe</h1>
                             <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -149,22 +206,22 @@ export class Menu extends Component {
 
 
 
-                    <br/>
-                    <br/>  <br/>
-                    <br/>
+                    <br />
+                    <br />  <br />
+                    <br />
 
 
                 </div>
 
-
+ */}
 
 
 
                 {/*//Our Product2*/}
-                <div className="bg-gradient-to-r from-[#1B1B1B] to-[#535353] flex flex-col ">
+                {/* <div className="bg-gradient-to-r from-[#1B1B1B] to-[#535353] flex flex-col ">
 
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
 
                     <div className="flex justify-center gap-10 items-center">
                         <div className="bg-[#AB8A5A]  px-5 py-2 rounded">
@@ -175,15 +232,15 @@ export class Menu extends Component {
 
                     </div>
 
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
 
                     <div className="flex justify-evenly items-center">
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]"  src={OurProductPic1} alt=""/>
+                            <img className="w-[250px] h-[250px]" src={OurProductPic1} alt="" />
                             <h1 className="text-2xl text-center text-white ">Cappuccino Coffe</h1>
                             <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -195,7 +252,7 @@ export class Menu extends Component {
 
 
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]" src={OurProductPic2} alt=""/>
+                            <img className="w-[250px] h-[250px]" src={OurProductPic2} alt="" />
                             <h1 className="text-2xl text-center text-white ">Ice Coffe</h1>
                             <p className="max-w-[250px]  text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -206,7 +263,7 @@ export class Menu extends Component {
 
 
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px] " src={OurProductPic3} alt=""/>
+                            <img className="w-[250px] h-[250px] " src={OurProductPic3} alt="" />
                             <h1 className="text-2xl text-center text-white ">Chai Coffe</h1>
                             <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -218,14 +275,14 @@ export class Menu extends Component {
 
                     </div>
 
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
 
                     <div className="flex justify-evenly items-center">
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]" src={OurProductPic1} alt=""/>
+                            <img className="w-[250px] h-[250px]" src={OurProductPic1} alt="" />
                             <h1 className="text-2xl text-center text-white ">Cappuccino Coffe</h1>
                             <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -236,7 +293,7 @@ export class Menu extends Component {
 
 
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]" src={OurProductPic2} alt=""/>
+                            <img className="w-[250px] h-[250px]" src={OurProductPic2} alt="" />
                             <h1 className="text-2xl text-center text-white ">Ice Coffe</h1>
                             <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -247,7 +304,7 @@ export class Menu extends Component {
 
 
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]" src={OurProductPic3} alt=""/>
+                            <img className="w-[250px] h-[250px]" src={OurProductPic3} alt="" />
                             <h1 className="text-2xl text-center text-white ">Chai Coffe</h1>
                             <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -261,21 +318,21 @@ export class Menu extends Component {
 
 
 
-                    <br/>
-                    <br/>  <br/>
-                    <br/>
+                    <br />
+                    <br />  <br />
+                    <br />
 
 
                 </div>
-
+ */}
 
 
 
 
                 {/*//Our Product3*/}
-                <div className="bg-gradient-to-r from-[#1B1B1B] to-[#535353] flex flex-col ">
+                {/* <div className="bg-gradient-to-r from-[#1B1B1B] to-[#535353] flex flex-col ">
 
-                    <br/>
+                    <br />
 
 
 
@@ -288,15 +345,15 @@ export class Menu extends Component {
 
                     </div>
 
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
 
                     <div className="flex justify-evenly items-center">
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]"  src={OurProductPic1} alt=""/>
+                            <img className="w-[250px] h-[250px]" src={OurProductPic1} alt="" />
                             <h1 className="text-2xl text-center text-white ">Cappuccino Coffe</h1>
                             <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -308,7 +365,7 @@ export class Menu extends Component {
 
 
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]" src={OurProductPic2} alt=""/>
+                            <img className="w-[250px] h-[250px]" src={OurProductPic2} alt="" />
                             <h1 className="text-2xl text-center text-white ">Ice Coffe</h1>
                             <p className="max-w-[250px]  text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -319,7 +376,7 @@ export class Menu extends Component {
 
 
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px] " src={OurProductPic3} alt=""/>
+                            <img className="w-[250px] h-[250px] " src={OurProductPic3} alt="" />
                             <h1 className="text-2xl text-center text-white ">Chai Coffe</h1>
                             <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -331,14 +388,14 @@ export class Menu extends Component {
 
                     </div>
 
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
 
                     <div className="flex justify-evenly items-center">
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]" src={OurProductPic1} alt=""/>
+                            <img className="w-[250px] h-[250px]" src={OurProductPic1} alt="" />
                             <h1 className="text-2xl text-center text-white ">Cappuccino Coffe</h1>
                             <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -349,7 +406,7 @@ export class Menu extends Component {
 
 
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]" src={OurProductPic2} alt=""/>
+                            <img className="w-[250px] h-[250px]" src={OurProductPic2} alt="" />
                             <h1 className="text-2xl text-center text-white ">Ice Coffe</h1>
                             <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -360,7 +417,7 @@ export class Menu extends Component {
 
 
                         <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]" src={OurProductPic3} alt=""/>
+                            <img className="w-[250px] h-[250px]" src={OurProductPic3} alt="" />
                             <h1 className="text-2xl text-center text-white ">Chai Coffe</h1>
                             <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!</p>
                             <h1 className="text-2xl text-center text-white ">$2.89</h1>
@@ -374,12 +431,12 @@ export class Menu extends Component {
 
 
 
-                    <br/>
-                    <br/>  <br/>
-                    <br/>
+                    <br />
+                    <br />  <br />
+                    <br />
 
 
-                </div>
+                </div> */}
 
 
 
