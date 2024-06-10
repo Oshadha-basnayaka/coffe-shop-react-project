@@ -1,37 +1,72 @@
 import { Component, useState } from "react";
 
+
+import Pic2 from "../../../image/ourMenuImg/download (2).jpeg";
+
 interface CartItem {
     id: number;
     itemName: string;
-    category: string;
     price: number;
+    quantity: number;
 }
 
-const cartItems: CartItem[] = [
-    { id: 1, itemName: "Espresso", category: "Coffee", price: 250 },
-    { id: 2, itemName: "Cappuccino", category: "Coffee", price: 300 },
-    { id: 3, itemName: "Blueberry Muffin", category: "Sweet", price: 150 },
+const initialCartItems: CartItem[] = [
+    { id: 1, itemName: "Espresso", price: 250, quantity: 1 },
+    { id: 2, itemName: "Cappuccino", price: 300, quantity: 1 },
+    { id: 3, itemName: "Blueberry Muffin", price: 150, quantity: 1 },
+    { id: 4, itemName: "Blueberry Muffin", price: 150, quantity: 1 },
+
 ];
 
 const Cart = () => {
-    const [pickupTime, setPickupTime] = useState("");
-    const [pickupDate, setPickupDate] = useState("");
-    const [returnDate, setReturnDate] = useState("");
+    const [cartItems, setCartItems] = useState<CartItem[]>(initialCartItems);
+    const [orderSummary, setOrderSummary] = useState<CartItem[]>([]);
+    const [totalOrderAmount, setTotalOrderAmount] = useState<number>(0);
+    const shippingFee = 300;
+
+
+    const handleIncrement = (id: number) => {
+        setCartItems((prevItems) =>
+            prevItems.map((item) =>
+                item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+            )
+        );
+    };
+
+    const handleDecrement = (id: number) => {
+        setCartItems((prevItems) =>
+            prevItems.map((item) =>
+                item.id === id && item.quantity > 1
+                    ? { ...item, quantity: item.quantity - 1 }
+                    : item
+            )
+        );
+    };
+
+    const ItemsOrdered = () => {
+        setOrderSummary(cartItems);
+        const total = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+        setTotalOrderAmount(total + shippingFee);
+    };
+
+
+   
+
 
     return (
-        <div className="bg-gradient-to-r from-gray-800 to-gray-900 flex justify-center  items-center pt-14 ">
+        <div className="bg-gradient-to-r from-gray-800 to-gray-900 flex justify-center  items-center  ">
             <div className="flex justify-center items-center w-full p-10 gap-5">
                 <div className="h-full w-8/12 p-6 rounded-lg shadow-lg  bg-white ">
                     <div className="flex justify-between">
                         <h2 className="text-2xl font-bold mb-6">Shopping Cart</h2>
-                        <h2 className="text-xl font-bold mb-6">3 Items</h2>
+                        <h2 className="text-xl font-bold mb-6">{cartItems.length}Items</h2>
                     </div>
 
                     <div className="flex justify-between mb-4">
                         <span>Item Details</span>
-                        <span>Category</span>
+                        <span>Quantity</span>
                         <span>Price</span>
-                        <span>Receipt</span>
+                        <span>Select</span>
                     </div>
                     {cartItems.map((item) => (
                         <div
@@ -40,87 +75,81 @@ const Cart = () => {
                         >
                             <div className="flex items-center">
                                 <img
-                                    src="..\image\ourMenuImg\download (3).jpeg"
+                                    src={Pic2}
                                     alt={`${item.itemName}`}
                                     className="w-20 h-20 object-cover mr-4"
                                 />
                                 <div>
                                     <div>{item.itemName}</div>
-                                    <div>{item.category}</div>
+                                    <div>{item.quantity}</div>
                                     <button className="text-red-500 mt-2">Remove</button>
                                 </div>
                             </div>
-                            <input type="checkbox" className="mr-4" />
-                            <div className="mr-4">Rs. {item.price.toLocaleString()}</div>
-                            <div>
-                                <input type="file" className="file-input" />
+
+                            <div className="flex items-center space-x-4">
+                                <button
+                                    className="px-3 py-1 bg-gray-300 rounded focus:outline-none"
+                                    onClick={() => handleDecrement(item.id)}
+                                >
+                                    -
+                                </button>
+                                <span className="text-lg">{item.quantity}</span>
+                                <button
+                                    className="px-3 py-1 bg-gray-300 rounded focus:outline-none"
+                                    onClick={() => handleIncrement(item.id)}
+                                >
+                                    +
+                                </button>
                             </div>
+
+                            <div className="mr-4"> Rs. {(item.price * item.quantity).toLocaleString()}</div>
+                            <input type="checkbox" className="mr-4 " defaultChecked />
                         </div>
                     ))}
                     <div className="flex justify-between mt-6">
                         <button className="text-blue-500">← Go back</button>
-                        <button className="bg-red-500 text-white px-4 py-2 rounded">
-                            Clear Cart
+                        <button className="bg-green-700 text-white px-4 py-2 rounded"
+                            onClick={ItemsOrdered}
+                        >
+                            Order
                         </button>
                     </div>
                 </div>
 
-                <div className="h-full w-4/12 p-6 rounded-lg shadow-lg  bg-white  ">
-                    <h2 className="text-xl font-bold mb-4">Proceed to Checkout</h2>
-                    <p className="text-gray-500 mb-4">3 Items</p>
-
-                    <div className="mb-4">
-                        <label className="block text-gray-700 mb-2" htmlFor="pickup-time">
-                            Pick-Up Time
-                        </label>
-                        <input
-                            id="pickup-time"
-                            type="time"
-                            value={pickupTime}
-                            onChange={(e) => setPickupTime(e.target.value)}
-                            className="w-full border border-gray-300 rounded-md p-2"
-                        />
+                <div className="h-full w-4/12 p-6 rounded-lg shadow-lg bg-white">
+                    <div className="max-w-md mx-auto bg-white shadow-md rounded-md p-4">
+                        <div className="flex justify-between items-center mb-4">
+                            <h2 className="text-lg font-bold">Order Summary</h2>
+                        </div>
+                        <div className="border-t border-b py-4">
+                            <p className="font-semibold mb-2">PRICE DETAILS ({orderSummary.length} items)</p>
+                            {orderSummary.map((item) => (
+                                <div className="flex justify-between mb-2" key={item.id}>
+                                    <span>{item.itemName} x {item.quantity}</span>
+                                    <span>Rs. {(item.price * item.quantity).toLocaleString()}</span>
+                                </div>
+                            ))}
+                            <div className="flex justify-between mb-2">
+                                <span>Total MRP</span>
+                                <span>Rs. {orderSummary.reduce((total, item) => total + item.price * item.quantity, 0)}</span>
+                            </div>
+                            <div className="flex justify-between mb-2">
+                                <span>Shipping Fee</span>
+                                <span className="text-green-500">Rs. 300</span>
+                            </div>
+                        </div>
+                        <div className="flex justify-between items-center my-4">
+                            <span className="text-lg font-bold">Total Amount</span>
+                            <span className="text-lg font-bold">Rs. {totalOrderAmount }</span>
+                        </div>
+                        <button className="w-full bg-blue-600 text-white py-2 rounded">Place Order</button>
+                        {/* <p className="text-green-500 text-center mt-2">
+                            You will save Rs. {totalOrderAmount - calculateDiscountedTotal()} on this order
+                        </p> */}
+                        <p className="text-center mt-2 text-sm text-gray-600">
+                            Safe and Secure Payments. Easy returns. 100% Authentic products.
+                        </p>
                     </div>
-
-                    <div className="mb-4">
-                        <label className="block text-gray-700 mb-2" htmlFor="pickup-date">
-                            Pick-Up Date
-                        </label>
-                        <input
-                            id="pickup-date"
-                            type="date"
-                            value={pickupDate}
-                            onChange={(e) => setPickupDate(e.target.value)}
-                            className="w-full border border-gray-300 rounded-md p-2"
-                        />
-                    </div>
-
-                    <div className="mb-4">
-                        <label className="block text-gray-700 mb-2" htmlFor="return-date">
-                            Return Date
-                        </label>
-                        <input
-                            id="return-date"
-                            type="date"
-                            value={returnDate}
-                            onChange={(e) => setReturnDate(e.target.value)}
-                            className="w-full border border-gray-300 rounded-md p-2"
-                        />
-                    </div>
-
-                    <div className="flex justify-between items-center mb-4">
-                        <span className="text-lg font-bold">Total</span>
-                        <span className="text-lg font-bold">
-                            Rs.{" "}
-                            {cartItems
-                                .reduce((total, item) => total + item.price, 0)
-                                .toLocaleString()}
-                        </span>
-                    </div>
-
-                    <button className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800">
-                        Request Reservation
-                    </button>
                 </div>
             </div>
         </div>

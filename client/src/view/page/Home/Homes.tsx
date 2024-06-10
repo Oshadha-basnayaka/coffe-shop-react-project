@@ -108,7 +108,7 @@ const Home = () => {
 
             {/*//home photo*/}
             <div id="homePic">
-                <div className={"flex text-white pt-52  font-bold  justify-center items-center flex-col"}>
+                <div className={"flex text-white  font-bold  justify-center items-center flex-col"}>
                     <h1 className={"text-[32px] text-[#AB8A5A]"}>Welcome</h1>
                     <h1 className={"text-[62px]"}>Amazing Taste And Beautiful Place
                     </h1>

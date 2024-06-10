@@ -10,7 +10,7 @@ export class DefaultLayout extends Component {
 
             <div className="flex flex-col">
                 <div className="">  <NavBar /></div>
-                <div>  <MainContent /></div>
+                <div className="">  <MainContent /></div>
                 <div>  <Footer /></div>
             </div>
 

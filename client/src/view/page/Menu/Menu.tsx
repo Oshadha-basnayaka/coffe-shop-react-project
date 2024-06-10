@@ -62,7 +62,7 @@ export class Menu extends Component {
             <>
 
                 <div id="MenuhomePic">
-                    <div className={"flex text-white pt-72  font-bold  justify-center items-center flex-col"}>
+                    <div className={"flex text-white   font-bold  justify-center items-center flex-col"}>
                         <h1 className={"text-[40px] "}>The Best Coffe tast Experiance </h1>
                         <h1 className={"text-[62px] "}>Menu</h1>
                     </div>
