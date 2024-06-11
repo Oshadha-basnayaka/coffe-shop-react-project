@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
-import "/src/assets/css/adminlogin.css"
+import "../../../assets/adminlogin.css";
 export default function AdminLogin() {
     return (
         <>

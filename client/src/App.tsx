@@ -8,6 +8,10 @@ import {DefaultLayout} from "./view/commen/DefaultLayout/DefaultLayout";
 import {Login} from "./view/page/Login/Login";
 import {SingUp} from "./view/page/Login/SingUp";
 import AdminLayout from './view/commen/DefaultLayout/AdminLayout';
+import AdminAddProduct from './view/page/admin/admin-add-product.page';
+import AdminProduct from './view/page/admin/admin-products.page';
+import AdminDashboard from './view/page/admin/admin-dashboard.page';
+import AdminLogin from './view/page/admin/admin-login.page';
 
 function App() {
     return ( <BrowserRouter>
@@ -18,16 +22,34 @@ function App() {
                        Component={DefaultLayout}>
                 </Route>
 
-                <Route path='/admin'
-                Component={AdminLayout}>
-                
-                </Route>
-
                 <Route path="/login"
                        Component={Login}>
                 </Route>
                 <Route path="/singup"
                        Component={SingUp}>
+                </Route>
+
+
+
+
+                <Route path='/admin'
+                Component={AdminLayout}>
+                </Route>
+
+                <Route path='/admin/products'
+                Component={AdminProduct}>
+                </Route>
+
+                <Route path='/admin/addproduct'
+                Component={AdminAddProduct}>
+                </Route>
+
+                <Route path='/admin/dashboard'
+                Component={AdminDashboard}>
+                </Route>
+
+                <Route path='/admin/login'
+                Component={AdminLogin}>
                 </Route>
             </Routes>
         </BrowserRouter>
