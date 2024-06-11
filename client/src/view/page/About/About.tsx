@@ -12,7 +12,7 @@ export class About extends Component {
 
                 {/*//home photo*/}
                 <div id="AboutHomePic">
-                    <div className={"flex text-white   font-bold  justify-center items-center flex-col"}>
+                    <div className={"flex text-white   font-bold  justify-center items-center flex-col pt-[50px]"}>
                         <h1 className={"text-[40px] "}>The Best Coffe tast Experiance </h1>
                         <h1 className={"text-[62px] "}>About Us</h1>
 

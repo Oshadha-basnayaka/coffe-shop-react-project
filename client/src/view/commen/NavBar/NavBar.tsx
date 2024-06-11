@@ -5,7 +5,7 @@ class NavBar extends Component {
   render() {
     return (
       <div>
-        <nav className=" h-fit     bg-gradient-to-r from-[#1B1B1B] to-[#535353] flex justify-between items-center  top-0 z-10 w-[100%] py-2">
+        <nav className=" h-fit     bg-gradient-to-r from-[#1B1B1B] to-[#535353] flex justify-evenly items-center  top-0 z-10 w-[100%] py-2">
           <div>
             <h1 className="text-3xl text-white  pl-28">Simon Caffe</h1>
           </div>
