@@ -10,7 +10,7 @@ const Product = (prop:any) => {
 
       
 
-<div className="bg-gradient-to-r from-[#1B1B1B] to-[#535353] flex flex-col">
+<div className=" bg-gradient-to-r from-[#1B1B1B] to-[#535353] flex flex-col">
                 <div className="justify-center flex flex-col items-center pt-14">
                     <h1 className="text-2xl text-center text-[#AB8B5A]">Discover</h1>
                     <h1 className="text-4xl text-center text-white font-bold">OUR PRODUCT</h1>
@@ -21,14 +21,14 @@ const Product = (prop:any) => {
                 <br />
                 <br />
 
-                <div className="flex justify-center gap-10 items-center">
-                    <div className={`px-5 py-2 rounded ${selectedCategory === 'coffee' ? 'bg-[#AB8A5A]' : ''}`} onClick={() => setSelectedCategory('coffee')}>
+                <div className="flex justify-center gap-10 items-center   ">
+                    <div className={`px-5 py-2 border-gray-500 border-2 rounded ${selectedCategory === 'coffee' ? 'bg-[#AB8A5A]' : ''}`} onClick={() => setSelectedCategory('coffee')}>
                         <h1 className="text-2xl text-center text-black">Coffee</h1>
                     </div>
-                    <div className={`px-5 py-2 rounded ${selectedCategory === 'juice' ? 'bg-[#AB8A5A]' : ''}`} onClick={() => setSelectedCategory('juice')}>
+                    <div className={`px-5 py-2 border-gray-500 border-2 rounded ${selectedCategory === 'juice' ? 'bg-[#AB8A5A]' : ''}`} onClick={() => setSelectedCategory('juice')}>
                         <h1 className="text-2xl text-center  text-black">Juice</h1>
                     </div>
-                    <div className={`px-5 py-2 rounded ${selectedCategory === 'desserts' ? 'bg-[#AB8A5A]' : ''}`} onClick={() => setSelectedCategory('desserts')}>
+                    <div className={`px-5 py-2 border-gray-500 border-2 rounded ${selectedCategory === 'desserts' ? 'bg-[#AB8A5A]' : ''}`} onClick={() => setSelectedCategory('desserts')}>
                         <h1 className="text-2xl text-center  text-black">Desserts</h1>
                     </div>
                 </div>

@@ -68,20 +68,8 @@ export const products: Record<string, Product[]> = {
             price: "$2.89",
         },
 
-        {
-            img: OurProductPic3,
-            title: "Chai Coffee",
-            description:
-                "Indulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!",
-            price: "$2.89",
-        },
-        {
-            img: OurProductPic3,
-            title: "Chai Coffee",
-            description:
-                "Indulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!",
-            price: "$2.89",
-        },
+        
+       
     ],
     juice: [
         {
@@ -150,6 +138,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         </div>
     );
 };
+
+
 const Home = () => {
     const [selectedCategory, setSelectedCategory] =
         useState<keyof typeof products>("coffee");
@@ -163,128 +153,14 @@ const Home = () => {
                     <h1 className="text-6xl md:text-7xl lg:text-8xl">Amazing Taste And Beautiful Place</h1>
                 </div>
 
-                <div className="absolute inset-x-0 bottom-10 flex justify-center space-x-10">
+                <div className="absolute inset-x-0 bottom-20 flex justify-center space-x-10">
                     <button className="px-8 md:px-10 lg:px-12 py-3 bg-[#AB8A5A] text-black border-2 font-bold">
                         <Link to="/menu">View Menu</Link>
                     </button>
                 </div>
             </div>
 
-            {/*//book a table*/}
-            {/*<div className="flex flex-col items-center justify-center p-10 bg-[#AB8A5A]">*/}
-
-            {/*    <div className="mx-auto w-full max-w-[550px]">*/}
-            {/*        <form action="https://formbold.com/s/FORM_ID" method="POST">*/}
-            {/*            <div className={"flex pb-5 text-white font-bold text-xl"}>Book A Table</div>*/}
-            {/*            <div className="-mx-3 flex flex-wrap">*/}
-            {/*                <div className="w-full px-3 sm:w-1/2">*/}
-
-            {/*                    <div className="mb-5">*/}
-            {/*                        <label htmlFor="fName"*/}
-            {/*                               className="mb-3 block text-base font-medium text-[#07074D]">*/}
-            {/*                            First Name*/}
-            {/*                        </label>*/}
-            {/*                        <input*/}
-            {/*                            type="text"*/}
-            {/*                            name="fName"*/}
-            {/*                            id="fName"*/}
-            {/*                            placeholder="First Name"*/}
-            {/*                            className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"*/}
-            {/*                        />*/}
-            {/*                    </div>*/}
-            {/*                </div>*/}
-            {/*                <div className="w-full px-3 sm:w-1/2">*/}
-            {/*                    <div className="mb-5">*/}
-            {/*                        <label htmlFor="lName"*/}
-            {/*                               className="mb-3 block text-base font-medium text-[#07074D]">*/}
-            {/*                            Last Name*/}
-            {/*                        </label>*/}
-            {/*                        <input*/}
-            {/*                            type="text"*/}
-            {/*                            name="lName"*/}
-            {/*                            id="lName"*/}
-            {/*                            placeholder="Last Name"*/}
-            {/*                            className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"*/}
-            {/*                        />*/}
-            {/*                    </div>*/}
-            {/*                </div>*/}
-            {/*            </div>*/}
-            {/*            <div className="mb-5 flex flex-col justify-center w-fit">*/}
-            {/*                <label htmlFor="guest" className="mb-3 block text-base font-medium text-[#07074D]">*/}
-            {/*                    How many guests are you bringing?*/}
-            {/*                </label>*/}
-            {/*                <input*/}
-            {/*                    type="number"*/}
-            {/*                    name="guest"*/}
-            {/*                    id="guest"*/}
-            {/*                    placeholder="2"*/}
-            {/*                    min="0"*/}
-            {/*                    className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"*/}
-            {/*                />*/}
-            {/*            </div>*/}
-
-            {/*            <div className="-mx-3 flex flex-wrap">*/}
-            {/*                <div className="w-full px-3 sm:w-1/2">*/}
-            {/*                    <div className="mb-5">*/}
-            {/*                        <label htmlFor="date"*/}
-            {/*                               className="mb-3 block text-base font-medium text-[#07074D]">*/}
-            {/*                            Date*/}
-            {/*                        </label>*/}
-            {/*                        <input*/}
-            {/*                            type="date"*/}
-            {/*                            name="date"*/}
-            {/*                            id="date"*/}
-            {/*                            className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"*/}
-            {/*                        />*/}
-            {/*                    </div>*/}
-            {/*                </div>*/}
-            {/*                <div className="w-full px-3 sm:w-1/2">*/}
-            {/*                    <div className="mb-5">*/}
-            {/*                        <label htmlFor="time"*/}
-            {/*                               className="mb-3 block text-base font-medium text-[#07074D]">*/}
-            {/*                            Time*/}
-            {/*                        </label>*/}
-            {/*                        <input*/}
-            {/*                            type="time"*/}
-            {/*                            name="time"*/}
-            {/*                            id="time"*/}
-            {/*                            className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"*/}
-            {/*                        />*/}
-            {/*                    </div>*/}
-            {/*                </div>*/}
-            {/*            </div>*/}
-
-            {/*            /!*<div className="mb-5">*!/*/}
-            {/*            /!*    <label className="mb-3 block text-base font-medium text-[#07074D]">*!/*/}
-            {/*            /!*        Are you coming to the event?*!/*/}
-            {/*            /!*    </label>*!/*/}
-            {/*            /!*    <div className="flex items-center space-x-6">*!/*/}
-            {/*            /!*        <div className="flex items-center">*!/*/}
-            {/*            /!*            <input type="radio" name="radio1" id="radioButton1" className="h-5 w-5"/>*!/*/}
-            {/*            /!*            <label htmlFor="radioButton1"*!/*/}
-            {/*            /!*                   className="pl-3 text-base font-medium text-[#07074D]">*!/*/}
-            {/*            /!*                Yes*!/*/}
-            {/*            /!*            </label>*!/*/}
-            {/*            /!*        </div>*!/*/}
-            {/*            /!*        <div className="flex items-center">*!/*/}
-            {/*            /!*            <input type="radio" name="radio1" id="radioButton2" className="h-5 w-5"/>*!/*/}
-            {/*            /!*            <label htmlFor="radioButton2"*!/*/}
-            {/*            /!*                   className="pl-3 text-base font-medium text-[#07074D]">*!/*/}
-            {/*            /!*                No*!/*/}
-            {/*            /!*            </label>*!/*/}
-            {/*            /!*        </div>*!/*/}
-            {/*            /!*    </div>*!/*/}
-            {/*            /!*</div>*!/*/}
-
-            {/*            <div>*/}
-            {/*                <button*/}
-            {/*                    className="hover:shadow-form rounded-md bg-black py-3 px-8 text-center text-base font-semibold text-white outline-none">*/}
-            {/*                    Submit*/}
-            {/*                </button>*/}
-            {/*            </div>*/}
-            {/*        </form>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+           
 
             {/*//second eke podi kalu patiya*/}
             <div className="bg-black bg-opacity-90 py-16 flex flex-col md:flex-row justify-around items-center space-y-8 md:space-y-0">
@@ -314,27 +190,7 @@ const Home = () => {
             </div>
 
             {/*// our story eke thiyn photo eki text eki*/}
-            {/*<div*/}
-            {/*    className="flex justify-center items-center mx-auto bg-gradient-to-r from-[#1B1B1B] to-[#535353] p-10">*/}
-            {/*    <div className="flex justify-center items-center bg-neutral-900">*/}
-            {/*        <img className="w-[550px]" src={DiscoverOurStory} alt=""/>*/}
-            {/*    </div>*/}
-
-            {/*    <div*/}
-            {/*        className="flex flex-col justify-center items-start bg-neutral-900 bg-opacity-50 ms-[-100px] p-10 rounded-xl">*/}
-            {/*        <h1 className="text-2xl text-start text-[#AB8B5A] font-italianno">Discover</h1>*/}
-            {/*        <h1 className="text-4xl text-center text-white pb-1">OUR STORY</h1>*/}
-            {/*        <p className="text-white text-xl pt-5">*/}
-            {/*            At Taste Coffe , each cup is a tale. From sourcing the<br/>*/}
-            {/*            finest beans to crafting your brew, our story is woven<br/>*/}
-            {/*            into every sip. Join us in a journey of flavor, warmth, <br/>*/}
-            {/*            and community. Welcome to a place where coffee isn't just<br/>*/}
-            {/*            a drink; it's a story waiting to unfold.*/}
-
-            {/*        </p>*/}
-            {/*    </div>*/}
-
-            {/*</div>*/}
+           
 
             {/*//kahapata kotasa*/}
             <div className="bg-[#AB8B5A] py-16 px-4 md:px-10">
@@ -485,136 +341,12 @@ const Home = () => {
 
             <Product data={products} viewButton={true} />
 
-            {/* <div className="bg-gradient-to-r from-[#1B1B1B] to-[#535353] flex flex-col">
-                <div className="justify-center flex flex-col items-center pt-14">
-                    <h1 className="text-2xl text-center text-[#AB8B5A]">Discover</h1>
-                    <h1 className="text-4xl text-center text-white font-bold">OUR PRODUCT</h1>
-                    <br />
-                    <br />
-                    <p className="text-white text-center max-w-[700px]">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                </div>
-                <br />
-                <br />
-
-                <div className="flex justify-center gap-10 items-center">
-                    <div className={`px-5 py-2 rounded ${selectedCategory === 'coffee' ? 'bg-[#AB8A5A]' : ''}`} onClick={() => setSelectedCategory('coffee')}>
-                        <h1 className="text-2xl text-center text-black">Coffee</h1>
-                    </div>
-                    <div className={`px-5 py-2 rounded ${selectedCategory === 'juice' ? 'bg-[#AB8A5A]' : ''}`} onClick={() => setSelectedCategory('juice')}>
-                        <h1 className="text-2xl text-center  text-black">Juice</h1>
-                    </div>
-                    <div className={`px-5 py-2 rounded ${selectedCategory === 'desserts' ? 'bg-[#AB8A5A]' : ''}`} onClick={() => setSelectedCategory('desserts')}>
-                        <h1 className="text-2xl text-center  text-black">Desserts</h1>
-                    </div>
-                </div>
-
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-
-                <div className="flex justify-evenly items-center">
-                    {products[selectedCategory].map((product, index) => (
-                        <div key={index} className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]" src={product.img} alt={product.title} />
-                            <h1 className="text-2xl text-center text-white">{product.title}</h1>
-                            <p className="max-w-[250px] text-white">{product.description}</p>
-                        </div>
-                    ))}
-                </div>
-
-                <br />
-                <br />
-
-                <div className="flex justify-center items-center">
-                    <button className="text-white border-2 border-[#AB8B5A] px-5 py-2 animate-pulse">
-                        <Link to="/menu">View Menu</Link>
-                    </button>
-                </div>
-                <br />
-                <br />
-                <br />
-                <br />
-            </div> */}
-
-            {/* <div className="bg-gradient-to-r from-[#1B1B1B] to-[#535353] flex flex-col ">
-                    <div className=" justify-center flex flex-col items-center pt-14">
-                        <h1 className="text-2xl text-center text-[#AB8B5A] ">Discover</h1>
-                        <h1 className="text-4xl text-center text-white font-bold">OUR PRODUCT</h1>
-                        <br/>
-                        <br/>
-                        <p className="text-white text-center max-w-[700px]">Far far away, behind the word mountains, far
-                            from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    </div>
-                    <br/>
-                    <br/>
-
-                    <div className="flex justify-center gap-10 items-center">
-                        <div className="bg-[#AB8A5A]  px-5 py-2 rounded">
-                            <h1 className="text-2xl text-center text-black ">Coffe</h1>
-                        </div>
-                        <h1 className="text-2xl text-center text-[#AB8A5A] "> Juice</h1>
-                        <h1 className="text-2xl text-center text-[#AB8A5A] ">Desserts</h1>
-
-                    </div>
-
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-
-                    <div className="flex justify-evenly items-center">
-                        <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]" src={OurProductPic1} alt=""/>
-                            <h1 className="text-2xl text-center text-white ">Cappuccino Coffe</h1>
-                            <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at
-                                [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a
-                                sip of pure delight. Discover your cozy moment in every cup!</p>
-                        </div>
-
-
-                        <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]" src={OurProductPic2} alt=""/>
-                            <h1 className="text-2xl text-center text-white ">Ice Coffe</h1>
-                            <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at
-                                [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a
-                                sip of pure delight. Discover your cozy moment in every cup!</p>
-                        </div>
-
-
-                        <div className="flex flex-col justify-evenly items-center text-center gap-5">
-                            <img className="w-[250px] h-[250px]" src={OurProductPic3} alt=""/>
-                            <h1 className="text-2xl text-center text-white ">Chai Coffe</h1>
-                            <p className="max-w-[250px] text-white">ndulge in warmth and spice with our Chai Coffee at
-                                [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a
-                                sip of pure delight. Discover your cozy moment in every cup!</p>
-                        </div>
-
-
-                    </div>
-
-                    <br/>
-                    <br/>
-
-                    <div className="flex justify-center items-center">
-                        <button className="text-white border-2 border-[#AB8B5A] px-5 py-2  animate-pulse ">
-                            <Link to={"/menu"}>View Menu</Link>
-                        </button>
-                    </div>
-                    <br/>
-                    <br/> <br/>
-                    <br/>
-                </div> */}
-
+            
             {/*//Customer Syas*/}
-            <div id="CustomerSaysPic" className="bg-gradient-to-r from-[#1B1B1B] to-[#535353] flex flex-col min-h-screen px-5 py-14">
+            <div  className="bg-gradient-to-r from-[#535353] to-[#1B1B1B] flex flex-col  px-5 py-14">
                 <div className="flex flex-col justify-center items-center">
                     <h1 className="text-2xl text-[#AB8B5A]">Testimony</h1>
-                    <h1 className="text-4xl text-white">CUSTOMERS SAYS</h1>
-                    <br />
-                    <br />
+                    <h1 className="text-4xl text-white">CUSTOMERS SAY</h1>
                     <p className="text-white text-center max-w-[700px]">
                         Far far away, behind the word mountains, far from the countries
                         Vokalia and Consonantia, there live the blind texts.
@@ -627,7 +359,7 @@ const Home = () => {
                             key={index}
                             className="bg-[#AB8A5A] p-8 rounded-lg shadow-lg max-w-md w-full"
                             initial="hidden"
-                            whileInView="visible"
+                            animate="visible"
                             variants={testimonialVariants}
                             viewport={{ once: true, amount: 0.2 }}
                         >

@@ -54,9 +54,9 @@ const Cart = () => {
 
 
     return (
-        <div className="bg-gradient-to-r from-gray-800 to-gray-900 flex justify-center  items-center  ">
-            <div className="flex justify-center items-center w-full p-10 gap-5">
-                <div className="h-full w-8/12 p-6 rounded-lg shadow-lg  bg-white ">
+        <div className="flex  h-full  bg-gradient-to-r from-gray-800 to-gray-900   justify-center   p-10 gap-5">
+           
+                <div className="h-full w-2/3 p-6 rounded-lg   bg-white ">
                     <div className="flex justify-between">
                         <h2 className="text-2xl font-bold mb-6">Shopping Cart</h2>
                         <h2 className="text-xl font-bold mb-6">{cartItems.length}Items</h2>
@@ -116,15 +116,15 @@ const Cart = () => {
                     </div>
                 </div>
 
-                <div className="h-full w-4/12 p-6 rounded-lg shadow-lg bg-white">
-                    <div className="max-w-md mx-auto bg-white shadow-md rounded-md p-4">
-                        <div className="flex justify-between items-center mb-4">
+                <div className=" w-1/3 h-[500px] rounded-lg bg-white  p-6  ">
+                   
+                        <div className="flex  items-center mb-4">
                             <h2 className="text-lg font-bold">Order Summary</h2>
                         </div>
                         <div className="border-t border-b py-4">
                             <p className="font-semibold mb-2">PRICE DETAILS ({orderSummary.length} items)</p>
                             {orderSummary.map((item) => (
-                                <div className="flex justify-between mb-2" key={item.id}>
+                                <div className="flex  mb-2" key={item.id}>
                                     <span>{item.itemName} x {item.quantity}</span>
                                     <span>Rs. {(item.price * item.quantity).toLocaleString()}</span>
                                 </div>
@@ -149,9 +149,9 @@ const Cart = () => {
                         <p className="text-center mt-2 text-sm text-gray-600">
                             Safe and Secure Payments. Easy returns. 100% Authentic products.
                         </p>
-                    </div>
+                   
                 </div>
-            </div>
+            
         </div>
     );
 };

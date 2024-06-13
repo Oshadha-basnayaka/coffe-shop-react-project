@@ -6,7 +6,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 import {DefaultLayout} from "./view/commen/DefaultLayout/DefaultLayout";
 import {Login} from "./view/page/Login/Login";
-import {SingUp} from "./view/page/Login/SingUp";
+import SingUp from "./view/page/Login/SingUp";
 import AdminLayout from './view/commen/DefaultLayout/AdminLayout';
 import AdminAddProduct from './view/page/admin/admin-add-product.page';
 import AdminProduct from './view/page/admin/admin-products.page';
@@ -25,7 +25,7 @@ function App() {
                 <Route path="/login"
                        Component={Login}>
                 </Route>
-                <Route path="/singup"
+                <Route path="/signup"
                        Component={SingUp}>
                 </Route>
 
