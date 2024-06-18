@@ -7,7 +7,7 @@ export async function saveProduct(req: Request, res:Response) {
 
     const { name, category, description, price, qty } = req.body;
     const dbCatefory = await categoryModel.findById(category);
-    if(!dbCatefory) throw new Error("can not save product")
+    // if(!dbCatefory) throw new Error("can not save product")
 
     const product = await productModel.create({
         name,

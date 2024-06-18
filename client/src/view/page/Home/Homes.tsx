@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 import Product from "../../../componanent/Product";
 import DiscoverOurStory from "../../../image/Group 15.png";
@@ -21,7 +21,7 @@ interface Product {
 
 const testimonialVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 const testimonials = [
@@ -42,7 +42,6 @@ const testimonials = [
         author: "Louise Kelly",
     },
 ];
-
 
 export const products: Record<string, Product[]> = {
     coffee: [
@@ -67,9 +66,28 @@ export const products: Record<string, Product[]> = {
                 "Indulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!",
             price: "$2.89",
         },
-
+        {
+            img: OurProductPic3,
+            title: "Chai Coffee",
+            description:
+                "Indulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!",
+            price: "$2.89",
+        },
+        {
+            img: OurProductPic3,
+            title: "Chai Coffee",
+            description:
+                "Indulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!",
+            price: "$2.89",
+        },
+        {
+            img: OurProductPic3,
+            title: "Chai Coffee",
+            description:
+                "Indulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!",
+            price: "$2.89",
+        },
         
-       
     ],
     juice: [
         {
@@ -89,6 +107,26 @@ export const products: Record<string, Product[]> = {
         {
             img: OurProductPic2,
             title: "Avacardo Juice",
+            description:
+                "Indulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!",
+            price: "$2.89",
+        },
+        {
+            img: OurProductPic3,
+            title: "Chai Coffee",
+            description:
+                "Indulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!",
+            price: "$2.89",
+        },{
+            img: OurProductPic3,
+            title: "Chai Coffee",
+            description:
+                "Indulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!",
+            price: "$2.89",
+        },
+        {
+            img: OurProductPic3,
+            title: "Chai Coffee",
             description:
                 "Indulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!",
             price: "$2.89",
@@ -116,6 +154,26 @@ export const products: Record<string, Product[]> = {
                 "Indulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!",
             price: "$2.89",
         },
+        {
+            img: OurProductPic3,
+            title: "Chai Coffee",
+            description:
+                "Indulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!",
+            price: "$2.89",
+        },{
+            img: OurProductPic3,
+            title: "Chai Coffee",
+            description:
+                "Indulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!",
+            price: "$2.89",
+        },
+        {
+            img: OurProductPic3,
+            title: "Chai Coffee",
+            description:
+                "Indulge in warmth and spice with our Chai Coffee at [Your Coffee Shop's Name]. A perfect fusion of rich espresso and aromatic chai, it's a sip of pure delight. Discover your cozy moment in every cup!",
+            price: "$2.89",
+        },
     ],
 };
 
@@ -139,7 +197,6 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
     );
 };
 
-
 const Home = () => {
     const [selectedCategory, setSelectedCategory] =
         useState<keyof typeof products>("coffee");
@@ -149,8 +206,12 @@ const Home = () => {
             {/*//home photo*/}
             <div id="homePic" className="relative">
                 <div className="absolute inset-0 flex flex-col justify-center items-center text-white font-bold text-center">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl text-[#AB8A5A]">Welcome</h1>
-                    <h1 className="text-6xl md:text-7xl lg:text-8xl">Amazing Taste And Beautiful Place</h1>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl text-[#AB8A5A]">
+                        Welcome
+                    </h1>
+                    <h1 className="text-6xl md:text-7xl lg:text-8xl">
+                        Amazing Taste And Beautiful Place
+                    </h1>
                 </div>
 
                 <div className="absolute inset-x-0 bottom-20 flex justify-center space-x-10">
@@ -159,8 +220,6 @@ const Home = () => {
                     </button>
                 </div>
             </div>
-
-           
 
             {/*//second eke podi kalu patiya*/}
             <div className="bg-black bg-opacity-90 py-16 flex flex-col md:flex-row justify-around items-center space-y-8 md:space-y-0">
@@ -177,7 +236,9 @@ const Home = () => {
                         className="w-[30px] h-[30px]"
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADcUlEQVR4nO2Zz2sTQRTHn+a9lSi1/kLUevYX3vQmLXoVxGpRvHjpVRCEqkc9SPWggiLSXjx4TEnepC0Fbav4F9SDxXpRaj2Iv9Bq6s5UOzLJtgRNurOb/RGkXxgIZN9mPvN+zUwAVvSfyxXObsV4WQoaU4wvJdMPM7zPo4rxkltwdkGzSgk8KJnGlSBtMyqgdACaRbofSDLdk0wLthBLMEwLUtBd/RQwXYhh2CiZngQFqOUdzbAhTU9Yh5KFd57pHDiJg5hwigqiCuZOGokdOCdsckYlWQCiDKkaMKOJQLiDzp64IJQ3EukzptnZTQjfuux0aQEtZrjsdCrGKUvbi7GDlLuzBYTOwaZa5dp8ZxFej2MHUQJf+YYGO111F6LonPJdCMap2EEk06zfREwo1bPXI7DewiOz8YMImmsIJAetviCC5mIHUYzvLEKrs569LNBpmxyDuGW1t2KcMon9t60uwGYlcMbCI2NJgNy2Lb8msU1OmFHxhD+EqoDcjB3EZeeYHUj4Mc+Zo7GD6EewTjK5cUFIQXN6ENZCElKMhdg8wpiDpOQWnZNxgbhF53iihyrFOB09CM6Yd0OSUow9MYBcgKRVLqmCvkaW5EzfTNeHNCSZbkVYrW5AWiqJ7A7JVIoA4rsehm2QpiTTtQjC6iqkLS2gRTK9b8AbH0y+QTNICTzfQKU6B80inQNHMU4GhmB8EXvf0BpWKcbXy01knjOHF59XjO1B7rrMs/Mic2TJvoiHlrVnnDZzCgxiJma1olUX0ErgwwDeeLC0aDnIKIHPLWzaA4NIQX3eyvXa2ug8bJWCPlt446MehC3Wc2Hq9QpDX+CYl4I+lY3ztD+IrWQ6a1GpzgR5p1tw9noL8EWPwBp7Q3OZVqkoExD1Np+xGOqdAicC744V44D3oz1hflTnYXutECuHVMgOrhY3qYwDQTaDc1LQ71I+uxNCyhXOiSjPGiWzHRL0SzL9tPpTSArq9lZvHBqUEtRflRf3o/oXQArqjvZhH5mzd7lRMk5GcQ6XtotcGsq2mZAquy+is4GpOGZE8S6dg1Yzt3LYD2Xb6j5orvMDJVQKUjaFaLG7LnflmbZcv9bgCmdfqKaTsLRfs5ZM170K0w9NLuVVw3+2T+WdrsA34c8UKQ3GaX0FVlcRYkfqkwo9sCOFoFgR+OkPQBhKYHyKxwoAAAAASUVORK5CYII="
                     />
-                    <h1 className="text-white max-w-[250px] text-lg text-center md:text-start">No 3/6 , Bandaranayaka Road , Hettiwidiya , Weligama</h1>
+                    <h1 className="text-white max-w-[250px] text-lg text-center md:text-start">
+                        No 3/6 , Bandaranayaka Road , Hettiwidiya , Weligama
+                    </h1>
                 </div>
 
                 <div className="flex gap-5 items-center justify-center">
@@ -190,7 +251,6 @@ const Home = () => {
             </div>
 
             {/*// our story eke thiyn photo eki text eki*/}
-           
 
             {/*//kahapata kotasa*/}
             <div className="bg-[#AB8B5A] py-16 px-4 md:px-10">
@@ -291,8 +351,7 @@ const Home = () => {
                 </div>
             </div> */}
 
-
-            <div className="flex flex-wrap justify-around items-center p-10 gap-8 bg-gray-800" >
+            <div className="flex flex-wrap justify-around items-center p-10 gap-8 bg-gray-800">
                 <div className="flex flex-col justify-center items-center gap-5 w-60">
                     <div className="border-4 border-[#AB8B5A] p-5 rounded-lg bg-gray-900 shadow-lg">
                         <img
@@ -333,8 +392,6 @@ const Home = () => {
                     <h1 className="text-[#AB8B5A] text-2xl">900</h1>
                     <h2 className="text-white text-2xl text-center">Staff</h2>
                 </div>
-
-
             </div>
 
             {/*//Our Product*/}
@@ -342,8 +399,10 @@ const Home = () => {
             <Product data={products} viewButton={true} />
 
             
+
+
             {/*//Customer Syas*/}
-            <div  className="bg-gradient-to-r from-[#535353] to-[#1B1B1B] flex flex-col  px-5 py-14">
+            <div className="bg-gradient-to-r from-[#535353] to-[#1B1B1B] flex flex-col  px-5 py-14">
                 <div className="flex flex-col justify-center items-center">
                     <h1 className="text-2xl text-[#AB8B5A]">Testimony</h1>
                     <h1 className="text-4xl text-white">CUSTOMERS SAY</h1>
@@ -364,7 +423,9 @@ const Home = () => {
                             viewport={{ once: true, amount: 0.2 }}
                         >
                             <p className="text-xl text-white">{testimonial.text}</p>
-                            <h1 className="pt-5 text-white text-right font-semibold">{testimonial.author}</h1>
+                            <h1 className="pt-5 text-white text-right font-semibold">
+                                {testimonial.author}
+                            </h1>
                         </motion.div>
                     ))}
                 </div>
