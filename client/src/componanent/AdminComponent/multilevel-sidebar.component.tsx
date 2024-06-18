@@ -43,35 +43,36 @@ export default function MultiLevelSidebar() {
           Sidebar
         </Typography> */}
         <div className="flex justify-between items-center">
-          <img
+          <p className="self-center text-2xl font-bold">Simon Cafe</p>
+          {/* <img
             className="self-center"
             src="https://remosnextjs.vercel.app/images/logo/logo.png"
             width={"100px"}
             alt=""
-          />
+          /> */}
           {/* <img className="self-center" src="/src/assets/img/logo/logo-jshop.png" width={"100px"} alt="" /> */}
-          <FontAwesomeIcon
+          {/* <FontAwesomeIcon
             fontSize={"25px"}
             icon={faBars}
             className="cursor-pointer"
-          />
+          /> */}
         </div>
       </div>
       <List className="text-[1rem]" placeholder={undefined}>
         <Accordion
           open={open === 1}
           placeholder={undefined} // icon={
-          //   <ChevronDownIcon
-          //     strokeWidth={2.5}
-          //     className={`mx-auto h-4 w-4 transition-transform ${open === 1 ? "rotate-180" : ""} relative`}
-          //   />
-          // }
+        //   <ChevronDownIcon
+        //     strokeWidth={2.5}
+        //     className={`mx-auto h-4 w-4 transition-transform ${open === 1 ? "rotate-180" : ""} relative`}
+        //   />
+        // }
         >
           <ListItem
             className="p-0"
             selected={open === 1}
             onClick={() => {
-              navigate("/admin/dashboard");
+              navigate("/adminDashboard");
             }}
             placeholder={undefined}
           >
@@ -92,14 +93,15 @@ export default function MultiLevelSidebar() {
             </AccordionHeader>
           </ListItem>
         </Accordion>
-        <Accordion
+
+
+        {/* <Accordion
           open={open === 2}
           icon={
             <ChevronDownIcon
               strokeWidth={2.5}
-              className={`mx-auto h-4 w-4 transition-transform ${
-                open === 2 ? "rotate-180" : ""
-              }`}
+              className={`mx-auto h-4 w-4 transition-transform ${open === 2 ? "rotate-180" : ""
+                }`}
             />
           }
           placeholder={undefined}
@@ -147,7 +149,29 @@ export default function MultiLevelSidebar() {
               </ListItem>
             </List>
           </AccordionBody>
-        </Accordion>
+        </Accordion> */}
+
+
+        <ListItem
+        onClick={() => {
+          navigate("/adminProduct");
+        }}
+        placeholder={undefined}>
+          <ListItemPrefix placeholder={undefined}>
+          <ShoppingBagIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Product
+          <ListItemSuffix placeholder={undefined}>
+            <Chip
+              value="14"
+              size="sm"
+              variant="ghost"
+              color="blue-gray"
+              className="rounded-full"
+            />
+          </ListItemSuffix>
+        </ListItem>
+
         <ListItem placeholder={undefined}>
           <ListItemPrefix placeholder={undefined}>
             <InboxIcon className="h-5 w-5" />
@@ -163,12 +187,16 @@ export default function MultiLevelSidebar() {
             />
           </ListItemSuffix>
         </ListItem>
+
+
         <ListItem placeholder={undefined}>
           <ListItemPrefix placeholder={undefined}>
             <Cog6ToothIcon className="h-5 w-5" />
           </ListItemPrefix>
           Store
         </ListItem>
+
+
         <ListItem placeholder={undefined}>
           <ListItemPrefix placeholder={undefined}>
             <Cog6ToothIcon className="h-5 w-5" />
@@ -178,7 +206,7 @@ export default function MultiLevelSidebar() {
 
         <ListItem
           className=" bottom-0"
-          onClick={() => navigate("/admin/login")}
+          onClick={() => navigate("/adminLogin")}
           placeholder={undefined}
         >
           <ListItemPrefix placeholder={undefined}>
@@ -186,6 +214,7 @@ export default function MultiLevelSidebar() {
           </ListItemPrefix>
           Log Out
         </ListItem>
+
       </List>
     </Card>
   );

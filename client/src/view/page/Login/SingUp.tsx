@@ -10,9 +10,8 @@ interface SignUpProps {
 interface SignUpState {
   name: string;
   password: string;
-  location: string;
+  email: string;
   username: string;
-  role: string;
   contact: string;
 }
 
@@ -23,12 +22,13 @@ export class SignUp extends Component<SignUpProps, SignUpState> {
     super(props);
     this.api = axios.create({ baseURL: `http://localhost:4001` });
     this.state = {
-      contact: "",
-      location: "",
       name: "",
       password: "",
-      role: "",
+      email: "",
       username: "",
+      contact: "",
+
+
     };
   }
 
@@ -38,14 +38,13 @@ export class SignUp extends Component<SignUpProps, SignUpState> {
   };
 
   handleSignUp = () => {
-    const { name, password, location, username, role, contact } = this.state;
+    const { name, password, email, username, contact } = this.state;
     this.api
       .post("/users/save", {
         name,
         password,
-        location,
+        email,
         username,
-        role,
         contact,
       })
       .then((res: { data: any }) => {
@@ -96,14 +95,6 @@ export class SignUp extends Component<SignUpProps, SignUpState> {
                     onChange={this.handleMessageInputChange}
                   />
 
-                  <h1 className="text-2xl text-white">Location</h1>
-                  <input
-                    className="input-field rounded-md"
-                    type="text"
-                    name="location"
-                    value={this.state.location}
-                    onChange={this.handleMessageInputChange}
-                  />
                 </form>
 
                 <form className="flex flex-col gap-3 w-full">
@@ -116,14 +107,6 @@ export class SignUp extends Component<SignUpProps, SignUpState> {
                     onChange={this.handleMessageInputChange}
                   />
 
-                  <h1 className="text-2xl text-white">Your Role</h1>
-                  <input
-                    className="input-field rounded-md"
-                    type="text"
-                    name="role"
-                    value={this.state.role}
-                    onChange={this.handleMessageInputChange}
-                  />
 
                   <h1 className="text-2xl text-white">Contact Number</h1>
                   <input
@@ -131,6 +114,18 @@ export class SignUp extends Component<SignUpProps, SignUpState> {
                     type="text"
                     name="contact"
                     value={this.state.contact}
+                    onChange={this.handleMessageInputChange}
+                  />
+                </form>
+              </div>
+              <div>
+                <form className="flex flex-col gap-3 w-full">
+                  <h1 className="text-2xl text-white">email</h1>
+                  <input
+                    className="input-field rounded-md w-full "
+                    type="text"
+                    name="email"
+                    value={this.state.email}
                     onChange={this.handleMessageInputChange}
                   />
                 </form>

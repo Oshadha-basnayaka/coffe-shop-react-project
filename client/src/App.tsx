@@ -32,23 +32,23 @@ function App() {
 
 
 
-                <Route path='/admin'
+                {/* <Route path='/admin'
                 Component={AdminLayout}>
-                </Route>
+                </Route> */}
 
-                <Route path='/admin/products'
+                <Route path='/adminProduct'
                 Component={AdminProduct}>
                 </Route>
 
-                <Route path='/admin/addproduct'
+                <Route path='/adminProduct/adminAddProduct'
                 Component={AdminAddProduct}>
                 </Route>
 
-                <Route path='/admin/dashboard'
+                <Route path='/adminDashboard'
                 Component={AdminDashboard}>
                 </Route>
 
-                <Route path='/admin/login'
+                <Route path='/adminLogin'
                 Component={AdminLogin}>
                 </Route>
             </Routes>

@@ -19,16 +19,11 @@ export default function AdminProduct() {
                                 <option className="" value="">Title</option>
                                 <option value="">Category</option>
                                 <option value="">Purchased</option>
-                                <option value="">Selling</option>
-                                <option value="">Offered</option>
+                                <option value="">Selling</option>                               
                                 <option value="">Date</option>
-                                <option value="">Status</option>
+                                
                             </select>
-                            <div>|</div>
-                            <select className="selection:border-none focus:border-none focus:outline-none bg-white " name="" id="">
-                                <option value="">DESC</option>
-                                <option value="">ASC</option>
-                            </select>
+                            
                         </div>
 
                         <div className="bg-slate-700 px-10 ">
@@ -46,7 +41,7 @@ export default function AdminProduct() {
                         </div>
                     </div>
                     <div>
-                        <button onClick={() => navigate({pathname:"add"})} className="primary-btn">Add product</button>
+                        <button onClick={() => navigate({pathname:"adminAddProduct"})} className="primary-btn">Add product</button>
                     </div>
                 </div>
                 <div className="bg-white mt-7 rounded-tl-xl">
@@ -56,11 +51,7 @@ export default function AdminProduct() {
                         <ProductTableBody />
                         <ProductTableBody />
                         <ProductTableBody />
-                        <ProductTableBody />
-                        <ProductTableBody />
-                        <ProductTableBody />
-                        <ProductTableBody />
-                        <ProductTableBody />
+                        
                     </Table>
                 </div>
 
@@ -75,27 +66,11 @@ function ProductTableBody() {
         <TableBody>
             <td className="px-3 flex items-center">
                 <img width={"60px"} src="https://cdn.ishop.cholobangla.com/uploads/thumb-product-49-1.webp" alt="" />
-                <p>PUMA women's Carina Sneaker</p>
+                <p>coffe</p>
             </td>
-            <td className="px-3">
-                <div>
-                    <p>PUBLIC</p>
-                </div>
-            </td>
+            
             <td className="px-3">
                 <p>Nike</p>
-            </td>
-            <td className="px-3">
-                <p>Default</p>
-            </td>
-            <td className="px-3">
-                <p>90</p>
-            </td>
-            <td className="px-3">
-                <p>110</p>
-            </td>
-            <td className="px-3">
-                <p>110</p>
             </td>
             <td className="px-3">
                 <p>2024/05/01</p>
