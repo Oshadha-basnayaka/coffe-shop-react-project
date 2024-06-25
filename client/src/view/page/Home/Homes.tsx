@@ -396,7 +396,9 @@ const Home = () => {
 
             {/*//Our Product*/}
 
-            <Product data={products} viewButton={true} />
+            
+
+            <Product data={products} viewButton={true}   sliceCount={2} />
 
             
 

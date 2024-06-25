@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, useEffect } from "react";
 import React, { useState } from 'react';
 import OurProductPic1
     from "../../../image/OurProductPic/Beafourtony Espresso Cups and Saucers Unique craft Ceramic Cup.png";
@@ -6,6 +6,7 @@ import OurProductPic2 from "../../../image/OurProductPic/Free PSD _ Mockup of a 
 import OurProductPic3 from "../../../image/OurProductPic/Tea holic.png";
 import Product from "../../../componanent/Product";
 import { products } from "../Home/Homes";
+import axios from "axios";
 
 
 interface Product {
@@ -19,39 +20,52 @@ interface Product {
 
 interface Props {
     products: Product[];
+    sliceCount: number;
 }
 
 
-const sampleProducts: Product[] = [
-    {
-        id: 1,
-        category: 'Coffee',
-        name: 'Cappuccino Coffee',
-        description: 'Indulge in warmth and spice with our Chai Coffee...',
-        price: '$2.89',
-        image: 'path_to_image1',
-    },
-    {
-        id: 2,
-        category: 'Coffee',
-        name: 'Ice Coffee',
-        description: 'Indulge in warmth and spice with our Chai Coffee...',
-        price: '$2.89',
-        image: 'path_to_image2',
-    },
-    {
-        id: 3,
-        category: 'Coffee',
-        name: 'Chai Coffee',
-        description: 'Indulge in warmth and spice with our Chai Coffee...',
-        price: '$2.89',
-        image: 'path_to_image3',
-    },
-    // Add more products here
-];
+// const sampleProducts: Product[] = [
+//     {
+//         id: 1,
+//         category: 'Coffee',
+//         name: 'Cappuccino Coffee',
+//         description: 'Indulge in warmth and spice with our Chai Coffee...',
+//         price: '$2.89',
+//         image: 'path_to_image1',
+//     },
+//     {
+//         id: 2,
+//         category: 'Coffee',
+//         name: 'Ice Coffee',
+//         description: 'Indulge in warmth and spice with our Chai Coffee...',
+//         price: '$2.89',
+//         image: 'path_to_image2',
+//     },
+//     {
+//         id: 3,
+//         category: 'Coffee',
+//         name: 'Chai Coffee',
+//         description: 'Indulge in warmth and spice with our Chai Coffee...',
+//         price: '$2.89',
+//         image: 'path_to_image3',
+//     },
+    
+// ];
 
-export class Menu extends Component {
-    render() {
+const Menu = ()=> {
+
+    const [products, setProducts] = useState<Product[]>([]);
+
+    useEffect(() => {
+        axios.get<Product[]>('http://localhost:5000/api/v1/product/category/666f334c77a48f405cabaf9a')
+            .then(response => {
+                setProducts(response.data);
+            })
+            .catch(error => {
+                console.error("There was an error fetching the products!", error);
+            });
+    }, []);
+    
         return (
             <>
 
@@ -63,9 +77,12 @@ export class Menu extends Component {
                 </div>
 
                 {/* Our Product */}
-                <Product data={products} viewButton={false} />
+                <Product data={products} viewButton={false} sliceCount={0} />
 
             </>
         );
-    }
+   
 }
+
+
+export default Menu;

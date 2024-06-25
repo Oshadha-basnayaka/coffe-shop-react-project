@@ -4,7 +4,7 @@ import { verifyToken } from "../middlewear/authorization.middleweare";
 
 
 const product = Router();
-product.use(verifyToken)
+// product.use(verifyToken)
 
 product.post('/',saveProduct);
 product.delete('/',updateProduct);

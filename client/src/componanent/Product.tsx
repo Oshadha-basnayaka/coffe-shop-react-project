@@ -12,15 +12,17 @@ interface ProductType {
 
 interface ProductProps {
     data: {
-        [key: string]: ProductType[];
+        [key: string]: any[];
     };
     viewButton: boolean;
+    sliceCount: number;
 }
 
 const Product: React.FC<ProductProps> = (prop) => {
+   
     const [selectedCategory, setSelectedCategory] = useState<keyof typeof prop.data>("coffee");
     const [quantities, setQuantities] = useState<number[]>(prop.data[selectedCategory].map(() => 1));
-
+    // prop.data=prop.data[selectedCategory]
     const decrementQuantity = (index: number) => {
         setQuantities((prevQuantities) =>
             prevQuantities.map((quantity, i) =>
@@ -83,7 +85,7 @@ const Product: React.FC<ProductProps> = (prop) => {
             <br />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-evenly items-center rounded-lg shadow-md overflow-hidden m-4">
-                {prop.data[selectedCategory].map((product, index) => {
+                {prop.data[selectedCategory].slice(prop.sliceCount).map((product, index) => {
                     const totalPrice = product.price * quantities[index];
                     return (
                         <div key={index} className="rounded-lg bg-white">
