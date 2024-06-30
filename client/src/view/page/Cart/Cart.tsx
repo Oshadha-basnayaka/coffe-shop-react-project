@@ -1,47 +1,118 @@
-import { Component, useState } from "react";
+import { Component, useContext, useEffect, useState } from "react";
 import Pic2 from "../../../image/ourMenuImg/download (2).jpeg";
+import CartCOntext from "../../../Context/context";
+import { isNamedExportBindings } from "typescript";
+import Swal from 'sweetalert2';
+import axios from "axios";
+import { log } from "console";
+// import CartCOntext from "../../../Context/context";
 
 interface CartItem {
     id: number;
     itemName: string;
     price: number;
     quantity: number;
+    images?: string;
 }
 
-const initialCartItems: CartItem[] = [
-    { id: 1, itemName: "Espresso", price: 250, quantity: 1 },
-    { id: 2, itemName: "Cappuccino", price: 300, quantity: 1 },
-    { id: 3, itemName: "Blueberry Muffin", price: 150, quantity: 1 },
-    { id: 4, itemName: "Blueberry Muffin", price: 150, quantity: 1 },
-];
+// const initialCartItems: CartItem[] = [
+//     { id: 1, itemName: "Espresso", price: 250, quantity: 1 },
+//     { id: 2, itemName: "Cappuccino", price: 300, quantity: 1 },
+//     { id: 3, itemName: "Blueberry Muffin", price: 150, quantity: 1 },
+//     { id: 4, itemName: "Blueberry Muffin", price: 150, quantity: 1 },
+// ];
 
 const Cart = () => {
-    const [cartItems, setCartItems] = useState<CartItem[]>(initialCartItems);
+    const { cartItems, setCartData, removeData } = useContext(CartCOntext);
+    // const [cartItem, setCartItems] = useState<CartItem[]>(initialCartItems);
     const [orderSummary, setOrderSummary] = useState<CartItem[]>([]);
     const [totalOrderAmount, setTotalOrderAmount] = useState<number>(0);
+    const [qty, setQty] = useState<any>(cartItems.map((element: any) => element.quantity));
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [name, setName] = useState("");
+    const [address, setAddress] = useState("");
     const shippingFee = 300;
+    // let totalPrice = 0;
 
-    const handleIncrement = (id: number) => {
-        setCartItems((prevItems) =>
-            prevItems.map((item) =>
-                item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-            )
-        );
+    useEffect(() => {
+        // setQty(cartItems.quantity)
+        console.log(cartItems)
+        console.log(cartItems.quantity);
+    }, []);
+
+    useEffect(() => {
+       
+        const totalPrice = cartItems.reduce((total:any, item:any, index:any) => total + item.price * qty[index], 0);
+        console.log(totalPrice);
+        setTotalPrice(totalPrice + 300);
+    }, [qty]);
+
+    console.log(qty)
+
+    const handleIncrement = (qty: number) => {
+
+        setQty((prev: any) => prev.map((element: any, index: number) => {
+            if (index === qty) {
+                return element + 1
+            }
+            return element
+        }));
     };
 
-    const handleDecrement = (id: number) => {
-        setCartItems((prevItems) =>
-            prevItems.map((item) =>
-                item.id === id && item.quantity > 1
-                    ? { ...item, quantity: item.quantity - 1 } : item
-            )
-        );
+    const handleDecrement = (qty: number) => {
+
+        setQty((prev: any) => prev.map((element: any, index: number) => {
+            if (index === qty) {
+                return element - 1
+            }
+            return element
+        }));
+
     };
 
-    const ItemsOrdered = () => {
-        setOrderSummary(cartItems);
-        const total = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-        setTotalOrderAmount(total + shippingFee);
+    async function saveOrder() {
+        // setOrderSummary(cartItems);
+        // const total = cartItems.reduce((total:any, item:any) => total + item.price * item.quantity, 0);
+        // setTotalOrderAmount(total + shippingFee);
+        // setCartData(orderSummary);
+        // showAlert();
+        if (cartItems.length <= 0) return;
+        if (name.length <= 0) return;
+        if (address.length <= 0) return;
+
+        try {
+
+            const response = await axios.post("http://localhost:4000/api/v1/order", {
+                orderItems: cartItems.map((item: any) => item._id),
+                name,
+                address,
+                totalPrice
+            })
+            removeData();
+            setName("");
+            setAddress("");
+            showAlert();
+
+
+        } catch (e) {
+            console.log(e);
+
+        }
+    }
+
+    // const ItemsOrdered = () => {
+    //     setOrderSummary(cartItems);
+    //     const total = cartItems.reduce((total:any, item:number) => total + item.price * item.quantity, 0);
+    //     setTotalOrderAmount(total + shippingFee);
+    // };
+
+    const showAlert = () => {
+        Swal.fire({
+            title: 'Order Placed!',
+            text: 'Your order has been successfully placed.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
     };
 
     return (
@@ -58,19 +129,19 @@ const Cart = () => {
                     <span>Price</span>
                     <span>Select</span>
                 </div>
-                {cartItems.map((item) => (
+                {cartItems.map((item: any, index: any) => (
                     <div
                         key={item.id}
                         className="flex flex-col md:flex-row items-center justify-between mb-4 p-4 border rounded-lg"
                     >
                         <div className="flex items-center mb-4 md:mb-0">
                             <img
-                                src={Pic2}
-                                alt={`${item.itemName}`}
+                                src={item.images}
+                                alt={`${item.images}`}
                                 className="w-20 h-20 object-cover mr-4"
                             />
                             <div>
-                                <div>{item.itemName}</div>
+                                <div>{item.name}</div>
                                 <button className="text-red-500 mt-2">Remove</button>
                             </div>
                         </div>
@@ -78,28 +149,29 @@ const Cart = () => {
                         <div className="flex items-center space-x-4 mb-4 md:mb-0">
                             <button
                                 className="px-3 py-1 bg-gray-300 rounded focus:outline-none"
-                                onClick={() => handleDecrement(item.id)}
+                                onClick={() => handleDecrement(index)}
                             >
                                 -
                             </button>
-                            <span className="text-lg">{item.quantity}</span>
+                            <span className="text-lg">{qty[index].toString()}</span>
                             <button
                                 className="px-3 py-1 bg-gray-300 rounded focus:outline-none"
-                                onClick={() => handleIncrement(item.id)}
+                                onClick={() => handleIncrement(index)}
                             >
                                 +
                             </button>
                         </div>
 
-                        <div className="mr-4">Rs. {(item.price * item.quantity).toLocaleString()}</div>
+
+                        <div className="mr-4">Rs. {(item.price * 1).toLocaleString()}</div>
                         <input type="checkbox" className="mr-4" defaultChecked />
                     </div>
                 ))}
                 <div className="flex justify-between mt-6">
                     <button className="text-blue-500">← Go back</button>
-                    <button className="bg-green-700 text-white px-4 py-2 rounded" onClick={ItemsOrdered}>
+                    {/* <button className="bg-green-700 text-white px-4 py-2 rounded" onClick={ItemsOrdered}>
                         Order
-                    </button>
+                    </button> */}
                 </div>
             </div>
 
@@ -115,7 +187,7 @@ const Cart = () => {
                     ))}
                     <div className="flex justify-between mb-2">
                         <span>Total MRP</span>
-                        <span>Rs. {orderSummary.reduce((total, item) => total + item.price * item.quantity, 0)}</span>
+                        <span>Rs. {totalPrice - 300}</span>
                     </div>
                     <div className="flex justify-between mb-2">
                         <span>Shipping Fee</span>
@@ -125,23 +197,32 @@ const Cart = () => {
 
                 <div className="flex justify-between items-center mb-4">
                     <span className="text-lg font-bold">Total Amount</span>
-                    <span className="text-lg font-bold">Rs. {totalOrderAmount}</span>
+                    <span className="text-lg font-bold">Rs. {totalPrice}</span>
                 </div>
 
                 <div>
                     <input
+                        value={name}
                         type="text"
                         placeholder="Enter Your Name"
                         className="w-full border p-2 rounded mb-4"
+                        onChange={(e) => setName(e.target.value)}
                     />
                     <input
+                        value={address}
                         type="text"
                         placeholder="Enter Your Address"
                         className="w-full border p-2 rounded mb-4"
+                        onChange={(e) => setAddress(e.target.value)}
                     />
                 </div>
 
-                <button className="w-full bg-blue-600 text-white py-2 rounded">Place Order</button>
+                <button
+                    className="w-full bg-blue-600 text-white py-2 rounded"
+                    onClick={saveOrder}
+                >
+                    Place Order
+                </button>
                 <p className="text-center mt-2 text-sm text-gray-600">
                     Safe and Secure Payments. Easy returns. 100% Authentic products.
                 </p>

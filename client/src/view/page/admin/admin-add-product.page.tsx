@@ -20,7 +20,7 @@ interface Product {
 }
 
 export default function AdminAddProduct() {
-  const [productImages, setProductImages] = useState<any[]>([]);
+  const [productImages, setProductImage] = useState<any>("");
   const { register, handleSubmit, control } = useForm();
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -62,10 +62,8 @@ export default function AdminAddProduct() {
     try {
       const response = await axios.post(
         "http://localhost:4000/api/v1/product",
-        { ...data, category: selectedCategory, ...form },{
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+        { ...data, category: selectedCategory, ...form,images:image },{
+          
           // data: { ...data, category: selectedCategory, ...form }
         }
       );

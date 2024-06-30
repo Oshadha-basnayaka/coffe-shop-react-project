@@ -200,6 +200,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 const Home = () => {
     const [selectedCategory, setSelectedCategory] =
         useState<keyof typeof products>("coffee");
+        
 
     return (
         <>
@@ -398,7 +399,7 @@ const Home = () => {
 
             
 
-            <Product data={products} viewButton={true}   sliceCount={2} />
+            <Product data={products} viewButton={true}   sliceCount={0} />
 
             
 

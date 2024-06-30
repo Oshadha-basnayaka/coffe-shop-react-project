@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import CartCOntext from "../Context/context";
 
 interface ProductType {
     img: string;
@@ -11,18 +13,33 @@ interface ProductType {
 }
 
 interface ProductProps {
-    data: {
-        [key: string]: any[];
-    };
+    data: any
     viewButton: boolean;
     sliceCount: number;
 }
 
-const Product: React.FC<ProductProps> = (prop) => {
+const Product: React.FC<ProductProps> = (prop:any) => {
    
+    const [product,setProducts] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState<keyof typeof prop.data>("coffee");
-    const [quantities, setQuantities] = useState<number[]>(prop.data[selectedCategory].map(() => 1));
+    const [quantities, setQuantities] = useState<number[]>(product.map(() => 1));
+    
     // prop.data=prop.data[selectedCategory]
+
+    useEffect(() => {
+        fetchProudctByCategory()
+    },[selectedCategory]);
+
+    useEffect(() => {
+        setQuantities(product.map(() => 1));
+    }, [product]);
+
+    async function fetchProudctByCategory(){
+       const response = await axios.get(`http://localhost:4000/api/v1/product/category/${selectedCategory.toString()}`)
+        setProducts(response.data.data)
+    }
+
+
     const decrementQuantity = (index: number) => {
         setQuantities((prevQuantities) =>
             prevQuantities.map((quantity, i) =>
@@ -39,14 +56,16 @@ const Product: React.FC<ProductProps> = (prop) => {
         );
     };
 
+    const {setCartData} = useContext(CartCOntext);
+
     const addToCart = (index: number) => {
         // Implement logic to add the product to the cart
         console.log(`Add product ${index} to cart with quantity ${quantities[index]}`);
     };
 
-    const handleCategoryChange = (category: keyof typeof prop.data) => {
+    const handleCategoryChange = (category: string) => {
         setSelectedCategory(category);
-        setQuantities(prop.data[category].map(() => 1));
+        setQuantities(product.map(() => 1));
     };
 
     return (
@@ -71,7 +90,7 @@ const Product: React.FC<ProductProps> = (prop) => {
                     <div
                         key={category}
                         className={`px-5 py-2 border-gray-500 border-2 rounded ${selectedCategory === category ? "bg-[#AB8A5A]" : ""}`}
-                        onClick={() => handleCategoryChange(category as keyof typeof prop.data)}
+                        onClick={() => handleCategoryChange(category)}
                     >
                         <h1 className="text-2xl text-center text-black">{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
                     </div>
@@ -85,18 +104,18 @@ const Product: React.FC<ProductProps> = (prop) => {
             <br />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-evenly items-center rounded-lg shadow-md overflow-hidden m-4">
-                {prop.data[selectedCategory].slice(prop.sliceCount).map((product, index) => {
+                {product.slice(prop.sliceCount).map((product:any, index:number) => {
                     const totalPrice = product.price * quantities[index];
                     return (
                         <div key={index} className="rounded-lg bg-white">
-                            <img className="rounded-t-lg w-full h-[250px] object-cover" src={product.img} alt={product.title} />
+                            <img className="rounded-t-lg w-full h-[250px] object-cover" src={product.images} alt={product.title} />
 
                             <div className="p-4">
-                                <h3 className="text-lg font-semibold">{product.title}</h3>
+                                <h3 className="text-lg font-semibold">{product.name}</h3>
                                 <p className="text-sm text-gray-600">{product.description}</p>
                                 <div className="mt-2 flex items-center">
-                                    <span className="text-lg font-bold">${totalPrice.toFixed(2)}</span>
-                                    <div className="ml-auto flex items-center">
+                                    <span className="text-lg font-bold">${product.price.toFixed(2)}</span>
+                                    {/* <div className="ml-auto flex items-center">
                                         <span className="text-sm text-yellow-500">{product.rating}</span>
                                         <svg
                                             className="w-4 h-4 text-yellow-500"
@@ -105,10 +124,10 @@ const Product: React.FC<ProductProps> = (prop) => {
                                         >
                                             <path d="M10 15l-5.39 2.83 1.03-5.63L1 7.76l5.65-.82L10 2l2.35 4.94 5.65.82-4.63 4.44 1.03 5.63z" />
                                         </svg>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="mt-4 flex items-center justify-between">
-                                    <div className="flex items-center">
+                                <div className="flex items-center">
                                         <button
                                             onClick={() => decrementQuantity(index)}
                                             className="bg-gray-200 text-gray-700 px-2 py-1 rounded-l"
@@ -126,7 +145,7 @@ const Product: React.FC<ProductProps> = (prop) => {
                                         </button>
                                     </div>
                                     <button
-                                        onClick={() => addToCart(index)}
+                                        onClick={() => setCartData(product, quantities[index])}
                                         className="ml-4 bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition"
                                         aria-label="Add to Cart"
                                     >
