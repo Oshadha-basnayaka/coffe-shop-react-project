@@ -114,7 +114,7 @@ const Product: React.FC<ProductProps> = (prop:any) => {
                                 <h3 className="text-lg font-semibold">{product.name}</h3>
                                 <p className="text-sm text-gray-600">{product.description}</p>
                                 <div className="mt-2 flex items-center">
-                                    <span className="text-lg font-bold">${product.price.toFixed(2)}</span>
+                                    <span className="text-lg font-bold">${product.price}</span>
                                     {/* <div className="ml-auto flex items-center">
                                         <span className="text-sm text-yellow-500">{product.rating}</span>
                                         <svg

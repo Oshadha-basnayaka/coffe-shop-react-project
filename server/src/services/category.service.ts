@@ -29,7 +29,7 @@ export async function saveCategory(req, res) {
 export async function getAllCategory(req,res) {
     try {
         const cateforyList = await categoryModel.find();
-        res.json({ data: cateforyList }).send()
+        res.send({ data: cateforyList })
     } catch (e) {
         res.status(500).send({ error: "internal server error" })
     }

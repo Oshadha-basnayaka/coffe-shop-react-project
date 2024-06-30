@@ -30,18 +30,18 @@ export async function login(req:Request,res:Response){
 
 export async function adminLogin(req:Request,res:Response){
     try{
-        const {email,password} = req.body;
-        const user = await adminModel.findOne({email});
-        if(!user) res.status(500).json({error:"can not find user with the email"}).send();
-        if(!password) res.status(500).json({error:"can not find password"}).send();
-        const isValidate = bcrypt.compareSync(password,user.password);
-        user.password = ''
-        if(isValidate) {
-            const accessToken = jwt.sign({user},process.env.JWT_PRIVATEKEY)
-            res.json({accessToken}).send()
-        }else{
-            res.json({error:"can not authorized user"}).send();
-        }
+         const {email,password} = req.body;
+    const user = await adminModel.findOne({email});
+    if(!user) res.status(500).json({error:"can not find user with the email"}).send();
+    if(!password) res.status(500).json({error:"can not find password"}).send();
+    const isValidate = bcrypt.compareSync(password,user.password);
+    user.password = ''
+    if(isValidate) {
+        const accessToken = jwt.sign({user},process.env.JWT_PRIVATEKEY)
+        res.json({accessToken}).send()
+    }else{
+        res.json({error:"can not authorized user"}).send();
+    }
 
     }catch(e){
         res.status(500).send({error:"internal server error"});
